@@ -3,101 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arrow Escape - Play Free Web Games</title>
-    <meta name="description" content="Play Arrow Escape and other minimalist puzzle games for free. No download required. Simple, addictive, and classic web games.">
+    <title>Arrow Escape | Play. Escape. Repeat.</title>
+    <meta name="description" content="Experience addictive WebGL games instantly. Play Arrow Escape, the premier minimalist puzzle maze game.">
     <link rel="stylesheet" href="css/style.css">
-    <!-- AdSense Placeholder -->
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 <body>
 
-    <header>
+    <canvas id="particle-canvas"></canvas>
+
+    <nav id="navbar">
         <div class="logo">ARROW ESCAPE</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="details.html">About</a></li>
-                <li><a href="legal/privacy.html">Privacy</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>Escape the Maze.</h1>
-            <p>Experience precision and strategy in minimalist puzzle games. Arrow Escape is a free-to-play web game where every move counts.</p>
-        </section>
-
-        <div class="ad-slot top-ad">
-            <span>Advertisement - AdSense Optimized Space</span>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <div class="sound-toggle" id="sound-toggle" title="Sound Toggle">
+            <span style="cursor:pointer; font-size: 1.2rem;">🔊</span>
         </div>
+    </nav>
 
-        <section class="game-grid" id="game-grid">
-            <!-- Game Card: Arrow Escape -->
-            <div class="game-card" onclick="openGame('ArrowEscape')">
-                <div class="game-thumb">
-                    <img src="assets/arrow_escape_tile.png" alt="Arrow Escape Game">
-                </div>
-                <div class="game-info">
-                    <span class="game-status status-active">Online</span>
-                    <h3>Arrow Escape</h3>
-                    <p>Redirect arrows to clear the maze in this brain-teasing puzzle.</p>
-                </div>
-            </div>
-
-            <!-- Coming Soon Cards -->
-            <div class="game-card">
-                <div class="game-thumb">
-                    <img src="assets/coming_soon.png" alt="Coming Soon">
-                </div>
-                <div class="game-info">
-                    <span class="game-status status-soon">Coming Soon</span>
-                    <h3>Nexus Shift</h3>
-                    <p>Prepare for a new dimension of strategy. Arriving shortly.</p>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <div class="game-thumb">
-                    <img src="assets/coming_soon.png" alt="Coming Soon">
-                </div>
-                <div class="game-info">
-                    <span class="game-status status-soon">Coming Soon</span>
-                    <h3>Void Runner</h3>
-                    <p>Fast-paced arcade action. Stay tuned for the release.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="ad-slot bottom-ad">
-            <span>Advertisement - AdSense Optimized Space</span>
+    <section class="hero" id="home">
+        <!-- Floating Elements -->
+        <div class="float-arrow" style="top: 20%; left: 10%;">➔</div>
+        <div class="float-arrow" style="top: 15%; right: 15%;">➔</div>
+        <div class="float-arrow" style="bottom: 20%; left: 20%;">➔</div>
+        
+        <div class="hero-content">
+            <h1 class="reveal">PLAY. ESCAPE.<br>REPEAT.</h1>
+            <p class="reveal" style="transition-delay: 0.2s;">Experience addictive WebGL games instantly. Clean, minimalist, and challenging.</p>
+            <button class="cta-button reveal" style="transition-delay: 0.4s;" onclick="openGame('ArrowEscape')">PLAY ARROW ESCAPE</button>
         </div>
-    </main>
+    </section>
+
+    <section class="stats reveal">
+        <div class="stat-item">
+            <h2 class="counter" data-target="1500">0</h2>
+            <p>PLAYERS JOINED</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="12">0</h2>
+            <p>GAMES COMING SOON</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>LEVELS DESIGNED</p>
+        </div>
+    </section>
+
+    <section class="featured reveal" id="about">
+        <div class="section-header">
+            <h2>FEATURED GAME</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="featured-card">
+            <div class="featured-img">
+                <img src="assets/arrow_escape_tile.png" alt="Arrow Escape Featured">
+            </div>
+            <div class="featured-info">
+                <h3>ARROW ESCAPE</h3>
+                <p>Test your timing and strategy. Redirect arrows to clear all obstacles and win. One mistake costs a life. Are you fast enough?</p>
+                <div style="margin-top: 2rem;">
+                    <button class="cta-button" onclick="openGame('ArrowEscape')">PLAY NOW</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid-section reveal" id="games">
+        <div class="section-header">
+            <h2>ALL GAMES</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="game-grid">
+            <!-- Active Game -->
+            <div class="game-item" onclick="openGame('ArrowEscape')">
+                <div class="thumb-container">
+                    <span class="badge badge-live">LIVE</span>
+                    <img src="assets/arrow_escape_tile.png" alt="Play Arrow Escape" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <h4>ARROW ESCAPE</h4>
+                <p>Minimalist puzzle maze. Clear all arrows.</p>
+            </div>
+
+            <!-- Locked Games -->
+            <div class="game-item locked">
+                <div class="thumb-container">
+                    <span class="badge badge-soon">LOCKED</span>
+                    <img src="assets/coming_soon.png" alt="Coming Soon" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <h4>NEXUS SHIFT</h4>
+                <p>Strategic dimension jumping. Coming soon.</p>
+            </div>
+
+            <div class="game-item locked">
+                <div class="thumb-container">
+                    <span class="badge badge-soon">LOCKED</span>
+                    <img src="assets/coming_soon.png" alt="Coming Soon" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <h4>VOID RUNNER</h4>
+                <p>Infinite neon runner. Prepare yourself.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <div class="footer-links">
-            <a href="details.html">Game Details</a>
-            <a href="legal/privacy.html">Privacy Policy</a>
-            <a href="legal/terms.html">Terms of Service</a>
-            <a href="details.html#contact">Contact</a>
+        <div class="socials">
+            <a href="#" class="social-item">📱</a> <!-- Telegram Icon Placeholder -->
+            <a href="#" class="social-item">📺</a> <!-- YouTube Icon Placeholder -->
         </div>
-        <p>&copy; 2026 Arrow Escape Games. All rights reserved.</p>
+        <div class="logo" style="font-size: 1rem; margin-bottom: 1rem;">UNDERCITY GAMES</div>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 Arrow Escape Studio. All rights reserved.</p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem;">
+            <a href="legal/privacy.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Privacy Policy</a>
+            <a href="legal/terms.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Terms</a>
+        </div>
     </footer>
 
-    <!-- Game Overlay / Tap to Play Modal -->
-    <div id="game-overlay" class="game-overlay">
-        <div class="game-header">
-            <span id="game-title">Arrow Escape</span>
-            <button id="close-game" onclick="closeGame()">&times;</button>
+    <!-- Fullscreen Game Modal -->
+    <div id="game-modal" class="game-modal">
+        <div class="modal-header">
+            <div class="logo" style="font-size: 1rem;">ARROW ESCAPE</div>
+            <button class="close-btn" onclick="closeGame()">&times;</button>
         </div>
-        <div class="game-frame-container">
-            <div id="tap-to-play" class="tap-to-play" onclick="startGame()">
-                <div class="play-btn">▶</div>
-                <h2>TAP TO PLAY</h2>
-                <p>Loads in browser with Brotli compression</p>
-            </div>
-            <iframe id="game-iframe" src=""></iframe>
-        </div>
+        <iframe id="game-iframe" src=""></iframe>
     </div>
 
     <script src="js/main.js"></script>
