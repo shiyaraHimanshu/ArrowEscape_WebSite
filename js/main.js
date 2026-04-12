@@ -71,9 +71,11 @@ function initSlider() {
     if (!track) return;
     
     // Clone cards to create infinite effect (3 sets: [Clone] [Original] [Clone])
+    // Ensure correct order: [A B C] [A B C] [A B C]
     const cards = Array.from(track.children);
     cards.forEach(card => track.appendChild(card.cloneNode(true)));
-    cards.forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
+    // Use reverse to keep order when inserting before first child
+    [...cards].reverse().forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
 
     // Wait for layout to calculate jump
     setTimeout(() => {
@@ -82,10 +84,10 @@ function initSlider() {
         const originalCount = cards.length;
         const startPos = (cardWidth + gap) * originalCount;
         
-        slider.style.scrollBehavior = 'auto'; // Disable temporalily for setup
+        slider.style.scrollBehavior = 'auto'; 
         slider.scrollLeft = startPos;
         slider.style.scrollBehavior = 'smooth';
-    }, 100);
+    }, 150);
 }
 
 function scrollSlider(direction) {
@@ -137,11 +139,13 @@ window.onload = () => {
 // Navbar Scroll Effect
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.style.padding = '0.8rem 5%';
-        navbar.style.background = 'rgba(5, 5, 5, 0.95)';
+        navbar.style.padding = '1rem 5%';
+        navbar.style.background = 'rgba(255, 255, 255, 0.05)';
+        navbar.style.backdropFilter = 'blur(30px)';
     } else {
         navbar.style.padding = '1.5rem 5%';
-        navbar.style.background = 'rgba(5, 5, 5, 0.8)';
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
     }
 });
 

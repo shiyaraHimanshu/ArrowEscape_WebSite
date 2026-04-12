@@ -99,18 +99,17 @@ nav {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    transition: var(--transition-fast);
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 900;
-    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
 }
 
 .nav-links {
@@ -287,11 +286,7 @@ nav {
 }
 
 .underline {
-    width: 80px;
-    height: 4px;
-    background: var(--accent-cyan);
-    margin: 0 auto;
-    border-radius: 2px;
+    display: none;
 }
 
 /* Featured Section */
@@ -485,13 +480,11 @@ nav {
 
 /* Stats Section */
 .stats {
-    background: rgba(255, 0, 127, 0.05);
+    background: transparent;
     padding: 6rem 5%;
     display: flex;
     justify-content: space-around;
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .stat-item h2 {
