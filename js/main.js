@@ -39,48 +39,10 @@ function startCounters(section) {
     });
 }
 
-// Particle Background logic
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-
-function initParticles() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    particles = [];
-    
-    // Optimized particle count for performance
-    const isMobile = window.innerWidth < 768;
-    const count = isMobile ? 15 : 25; 
-    
-    for (let i = 0; i < count; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: Math.random() * 1.5,
-            speedX: (Math.random() - 0.5) * 0.3,
-            speedY: (Math.random() - 0.5) * 0.3,
-            color: Math.random() > 0.5 ? '#00f2ff' : '#ff007f'
-        });
-    }
-}
-
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-    });
-    requestAnimationFrame(animateParticles);
-}
+// Performance Optimization for Liquid Theme
+// No canvas particles needed for this aesthetic.
+function initParticles() {}
+function animateParticles() {}
 
 window.addEventListener('resize', initParticles);
 initParticles();
@@ -108,49 +70,44 @@ function initSlider() {
     
     // Clone cards to create infinite effect
     const cards = Array.from(track.children);
-    cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        track.appendChild(clone);
-    });
-    cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        track.insertBefore(clone, track.firstChild);
-    });
+    cards.forEach(card => track.appendChild(card.cloneNode(true)));
+    cards.forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
 
-    // Set initial scroll to middle (the original set)
-    const cardWidth = cards[0].offsetWidth + 40; // width + gap
-    slider.scrollLeft = cardWidth * cards.length;
+    // Calculate exact jump distance
+    setTimeout(() => {
+        const cardWidth = track.children[0].offsetWidth;
+        const gap = 40;
+        const originalCount = cards.length;
+        slider.scrollLeft = (cardWidth + gap) * originalCount;
+    }, 100);
 }
 
 function scrollSlider(direction) {
-    const cardWidth = track.children[0].offsetWidth + 40;
+    const cardWidth = track.children[0].offsetWidth;
+    const gap = 40;
     slider.scrollBy({
-        left: direction * cardWidth,
+        left: direction * (cardWidth + gap),
         behavior: 'smooth'
     });
 }
 
-// Handle infinite jump
+// Handle infinite jump to keep tiles centered
 slider.addEventListener('scroll', () => {
     const cards = Array.from(track.children);
     const originalCount = cards.length / 3;
-    const cardWidth = cards[0].offsetWidth + 40;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 40;
+    const setWidth = (cardWidth + gap) * originalCount;
     
-    if (slider.scrollLeft >= cardWidth * originalCount * 2) {
-        slider.scrollLeft = cardWidth * originalCount;
+    if (slider.scrollLeft >= setWidth * 2) {
+        slider.scrollLeft = setWidth;
     } else if (slider.scrollLeft <= 0) {
-        slider.scrollLeft = cardWidth * originalCount;
+        slider.scrollLeft = setWidth;
     }
 });
 
 // Initialization
-window.addEventListener('resize', () => {
-    initParticles();
-});
-
 window.onload = () => {
-    initParticles();
-    animateParticles();
     initSlider();
 };
 
