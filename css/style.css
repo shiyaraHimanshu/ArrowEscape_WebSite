@@ -89,7 +89,6 @@ h1, h2, h3, .logo {
     100% { transform: translate(100px, 50px) scale(1.1); }
 }
 
-/* Navbar */
 nav {
     position: fixed;
     top: 0;
@@ -431,6 +430,19 @@ nav {
     transform: scale(1.1);
 }
 
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    z-index: 10;
+    letter-spacing: 1px;
+}
+
 .card-content {
     padding: 2rem;
     text-align: center;
@@ -475,20 +487,6 @@ nav {
 
 .prev-arrow { left: 2%; }
 .next-arrow { right: 2%; }
-
-/* Decorative Spheres */
-.sphere {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #202030, #050505);
-    box-shadow: inset -5px -5px 20px rgba(0,0,0,0.8), 10px 10px 30px rgba(0,0,0,0.5);
-    z-index: -1;
-    pointer-events: none;
-}
-
-.sphere-1 { width: 120px; height: 120px; top: -20px; left: 10%; opacity: 0.6; }
-.sphere-2 { width: 80px; height: 80px; bottom: 40px; right: 15%; opacity: 0.4; }
-.sphere-3 { width: 200px; height: 200px; top: 30%; right: -50px; opacity: 0.2; }
 
 /* Stats Section */
 .stats {
