@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)/Build/(.*).br",
+      "source": "/(.*).br",
       "headers": [
         {
           "key": "Content-Encoding",
@@ -10,7 +10,16 @@
       ]
     },
     {
-      "source": "/(.*)/Build/(.*).js.br",
+      "source": "/(.*).gz",
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).js.br",
       "headers": [
         {
           "key": "Content-Type",
@@ -19,7 +28,7 @@
       ]
     },
     {
-      "source": "/(.*)/Build/(.*).wasm.br",
+      "source": "/(.*).wasm.br",
       "headers": [
         {
           "key": "Content-Type",
@@ -28,7 +37,7 @@
       ]
     },
     {
-      "source": "/(.*)/Build/(.*).data.br",
+      "source": "/(.*).data.br",
       "headers": [
         {
           "key": "Content-Type",
