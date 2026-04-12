@@ -31,8 +31,7 @@
         
         <div class="hero-content">
             <h1 class="reveal">PLAY. ESCAPE.<br>REPEAT.</h1>
-            <p class="reveal" style="transition-delay: 0.2s;">Experience addictive WebGL games instantly. Clean, minimalist, and challenging.</p>
-            <button class="cta-button reveal" style="transition-delay: 0.4s;" onclick="openGame('ArrowEscape')">PLAY ARROW ESCAPE</button>
+            <p class="reveal" style="transition-delay: 0.2s;">Addictive Minimalist Games for Every Device. High Performance. Instant Rewards.</p>
         </div>
     </section>
 
@@ -51,59 +50,97 @@
         </div>
     </section>
 
-    <section class="featured reveal" id="about">
-        <div class="section-header">
-            <h2>FEATURED GAME</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="featured-card">
-            <div class="featured-img">
-                <img src="assets/arrow_escape_tile.png" alt="Arrow Escape Featured">
+    <!-- Telegram Bot Promotion -->
+    <section class="telegram-section reveal">
+        <div class="telegram-card">
+            <div class="tg-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Bot" style="width: 60px;">
             </div>
-            <div class="featured-info">
-                <h3>ARROW ESCAPE</h3>
-                <p>Test your timing and strategy. Redirect arrows to clear all obstacles and win. One mistake costs a life. Are you fast enough?</p>
-                <div style="margin-top: 2rem;">
-                    <button class="cta-button" onclick="openGame('ArrowEscape')">PLAY NOW</button>
-                </div>
+            <div class="tg-content">
+                <h3>PLAY ON TELEGRAM</h3>
+                <p>🎁 Join our <strong>@ArrowEscape_bot</strong> to Earn Daily Rewards, Get Exclusive Level Updates, and Challenge Friends Globally!</p>
+                <a href="https://t.me/ArrowEscape_bot" class="cta-button tg-btn" target="_blank">JOIN BOT NOW</a>
             </div>
         </div>
     </section>
 
-    <section class="grid-section reveal" id="games">
-        <div class="section-header">
-            <h2>ALL GAMES</h2>
+    <!-- Games Section -->
+    <section class="grid-section" id="games">
+        <div class="section-header reveal">
+            <h2>GAMES PORTAL</h2>
             <div class="underline"></div>
         </div>
         
         <div class="game-grid">
-            <!-- Active Game -->
-            <div class="game-item" onclick="openGame('ArrowEscape')">
+            <!-- Game 1: Arrow Escape -->
+            <div class="game-item card-active reveal" onclick="openGame('ArrowEscape')">
                 <div class="thumb-container">
                     <span class="badge badge-live">LIVE</span>
-                    <img src="assets/arrow_escape_tile.png" alt="Play Arrow Escape" style="width:100%; height:100%; object-fit:cover;">
+                    <img src="assets/arrow_escape_tile.png" alt="Play Arrow Escape">
+                    <div class="game-hover-overlay">
+                        <span>TAP TO PLAY</span>
+                    </div>
                 </div>
-                <h4>ARROW ESCAPE</h4>
-                <p>Minimalist puzzle maze. Clear all arrows.</p>
+                <div class="game-info">
+                    <h4>ARROW ESCAPE</h4>
+                    <p>Redirect arrows. Clear the path. Don't hit the walls.</p>
+                </div>
             </div>
 
-            <!-- Locked Games -->
-            <div class="game-item locked">
+            <!-- Coming Soon Games (5-8 placeholders as requested) -->
+            <div class="game-item locked reveal">
                 <div class="thumb-container">
-                    <span class="badge badge-soon">LOCKED</span>
-                    <img src="assets/coming_soon.png" alt="Coming Soon" style="width:100%; height:100%; object-fit:cover;">
+                    <span class="badge badge-soon">SOON</span>
+                    <img src="assets/coming_soon.png" alt="Nexus Shift">
                 </div>
-                <h4>NEXUS SHIFT</h4>
-                <p>Strategic dimension jumping. Coming soon.</p>
+                <div class="game-info">
+                    <h4>NEXUS SHIFT</h4>
+                    <p>Strategic dimension jumping puzzles.</p>
+                </div>
             </div>
 
-            <div class="game-item locked">
+            <div class="game-item locked reveal">
                 <div class="thumb-container">
-                    <span class="badge badge-soon">LOCKED</span>
-                    <img src="assets/coming_soon.png" alt="Coming Soon" style="width:100%; height:100%; object-fit:cover;">
+                    <span class="badge badge-soon">SOON</span>
+                    <img src="assets/coming_soon.png" alt="Void Runner">
                 </div>
-                <h4>VOID RUNNER</h4>
-                <p>Infinite neon runner. Prepare yourself.</p>
+                <div class="game-info">
+                    <h4>VOID RUNNER</h4>
+                    <p>Infinite neon arcade runner.</p>
+                </div>
+            </div>
+
+            <div class="game-item locked reveal">
+                <div class="thumb-container">
+                    <span class="badge badge-soon">SOON</span>
+                    <img src="assets/coming_soon.png" alt="Cyber Grid">
+                </div>
+                <div class="game-info">
+                    <h4>CYBER GRID</h4>
+                    <p>Hack through the neural network.</p>
+                </div>
+            </div>
+
+            <div class="game-item locked reveal">
+                <div class="thumb-container">
+                    <span class="badge badge-soon">SOON</span>
+                    <img src="assets/coming_soon.png" alt="Echo Path">
+                </div>
+                <div class="game-info">
+                    <h4>ECHO PATH</h4>
+                    <p>Memory based rhythm challenge.</p>
+                </div>
+            </div>
+
+            <div class="game-item locked reveal">
+                <div class="thumb-container">
+                    <span class="badge badge-soon">SOON</span>
+                    <img src="assets/coming_soon.png" alt="Prism Core">
+                </div>
+                <div class="game-info">
+                    <h4>PRISM CORE</h4>
+                    <p>Refraction physics at its best.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -113,8 +150,9 @@
             <a href="#" class="social-item">📱</a> <!-- Telegram Icon Placeholder -->
             <a href="#" class="social-item">📺</a> <!-- YouTube Icon Placeholder -->
         </div>
-        <div class="logo" style="font-size: 1rem; margin-bottom: 1rem;">UNDERCITY GAMES</div>
-        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 Arrow Escape Studio. All rights reserved.</p>
+        <div class="logo" style="font-size: 1.2rem; margin-bottom: 0.5rem;">UNDERCITY GAMES</div>
+        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem;">Contact: <a href="mailto:undercitygame@gmail.com" style="color: var(--accent-cyan);">undercitygame@gmail.com</a></p>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 UnderCity Games. All rights reserved.</p>
         <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem;">
             <a href="legal/privacy.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Privacy Policy</a>
             <a href="legal/terms.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Terms</a>

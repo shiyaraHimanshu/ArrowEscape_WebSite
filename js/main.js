@@ -48,14 +48,18 @@ function initParticles() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     particles = [];
-    const count = 50;
+    
+    // Optimized particle count for performance
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 15 : 25; 
+    
     for (let i = 0; i < count; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 2,
-            speedX: (Math.random() - 0.5) * 0.5,
-            speedY: (Math.random() - 0.5) * 0.5,
+            size: Math.random() * 1.5,
+            speedX: (Math.random() - 0.5) * 0.3,
+            speedY: (Math.random() - 0.5) * 0.3,
             color: Math.random() > 0.5 ? '#00f2ff' : '#ff007f'
         });
     }
