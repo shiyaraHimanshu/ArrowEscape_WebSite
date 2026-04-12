@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Escape - Play Free Web Games</title>
+    <meta name="description" content="Play Arrow Escape and other minimalist puzzle games for free. No download required. Simple, addictive, and classic web games.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- AdSense Placeholder -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+    <header>
+        <div class="logo">ARROW ESCAPE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="details.html">About</a></li>
+                <li><a href="legal/privacy.html">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Escape the Maze.</h1>
+            <p>Experience precision and strategy in minimalist puzzle games. Arrow Escape is a free-to-play web game where every move counts.</p>
+        </section>
+
+        <div class="ad-slot top-ad">
+            <span>Advertisement - AdSense Optimized Space</span>
+        </div>
+
+        <section class="game-grid" id="game-grid">
+            <!-- Game Card: Arrow Escape -->
+            <div class="game-card" onclick="openGame('ArrowEscape')">
+                <div class="game-thumb">
+                    <img src="assets/arrow_escape_tile.png" alt="Arrow Escape Game">
+                </div>
+                <div class="game-info">
+                    <span class="game-status status-active">Online</span>
+                    <h3>Arrow Escape</h3>
+                    <p>Redirect arrows to clear the maze in this brain-teasing puzzle.</p>
+                </div>
+            </div>
+
+            <!-- Coming Soon Cards -->
+            <div class="game-card">
+                <div class="game-thumb">
+                    <img src="assets/coming_soon.png" alt="Coming Soon">
+                </div>
+                <div class="game-info">
+                    <span class="game-status status-soon">Coming Soon</span>
+                    <h3>Nexus Shift</h3>
+                    <p>Prepare for a new dimension of strategy. Arriving shortly.</p>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-thumb">
+                    <img src="assets/coming_soon.png" alt="Coming Soon">
+                </div>
+                <div class="game-info">
+                    <span class="game-status status-soon">Coming Soon</span>
+                    <h3>Void Runner</h3>
+                    <p>Fast-paced arcade action. Stay tuned for the release.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ad-slot bottom-ad">
+            <span>Advertisement - AdSense Optimized Space</span>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="details.html">Game Details</a>
+            <a href="legal/privacy.html">Privacy Policy</a>
+            <a href="legal/terms.html">Terms of Service</a>
+            <a href="details.html#contact">Contact</a>
+        </div>
+        <p>&copy; 2026 Arrow Escape Games. All rights reserved.</p>
+    </footer>
+
+    <!-- Game Overlay / Tap to Play Modal -->
+    <div id="game-overlay" class="game-overlay">
+        <div class="game-header">
+            <span id="game-title">Arrow Escape</span>
+            <button id="close-game" onclick="closeGame()">&times;</button>
+        </div>
+        <div class="game-frame-container">
+            <div id="tap-to-play" class="tap-to-play" onclick="startGame()">
+                <div class="play-btn">▶</div>
+                <h2>TAP TO PLAY</h2>
+                <p>Loads in browser with Brotli compression</p>
+            </div>
+            <iframe id="game-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
