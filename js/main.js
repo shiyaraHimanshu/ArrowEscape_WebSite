@@ -65,44 +65,67 @@ function closeGame() {
 const slider = document.getElementById('game-slider');
 const track = document.getElementById('game-track');
 
+let isJumping = false;
+
 function initSlider() {
     if (!track) return;
     
-    // Clone cards to create infinite effect
+    // Clone cards to create infinite effect (3 sets: [Clone] [Original] [Clone])
     const cards = Array.from(track.children);
     cards.forEach(card => track.appendChild(card.cloneNode(true)));
     cards.forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
 
-    // Calculate exact jump distance
+    // Wait for layout to calculate jump
     setTimeout(() => {
         const cardWidth = track.children[0].offsetWidth;
         const gap = 40;
         const originalCount = cards.length;
-        slider.scrollLeft = (cardWidth + gap) * originalCount;
+        const startPos = (cardWidth + gap) * originalCount;
+        
+        slider.style.scrollBehavior = 'auto'; // Disable temporalily for setup
+        slider.scrollLeft = startPos;
+        slider.style.scrollBehavior = 'smooth';
     }, 100);
 }
 
 function scrollSlider(direction) {
+    if (isJumping) return;
     const cardWidth = track.children[0].offsetWidth;
     const gap = 40;
+    
+    slider.style.scrollBehavior = 'smooth';
     slider.scrollBy({
-        left: direction * (cardWidth + gap),
-        behavior: 'smooth'
+        left: direction * (cardWidth + gap)
     });
 }
 
-// Handle infinite jump to keep tiles centered
+// Seamless Infinite Reset Logic
 slider.addEventListener('scroll', () => {
+    if (isJumping) return;
+
     const cards = Array.from(track.children);
     const originalCount = cards.length / 3;
     const cardWidth = cards[0].offsetWidth;
     const gap = 40;
     const setWidth = (cardWidth + gap) * originalCount;
     
+    // Jump distance - only jump when far enough into the clones
     if (slider.scrollLeft >= setWidth * 2) {
+        isJumping = true;
+        slider.style.scrollBehavior = 'auto';
         slider.scrollLeft = setWidth;
+        setTimeout(() => {
+            slider.style.scrollBehavior = 'smooth';
+            isJumping = false;
+        }, 50);
     } else if (slider.scrollLeft <= 0) {
+        isJumping = true;
+        slider.style.scrollBehavior = 'auto';
         slider.scrollLeft = setWidth;
+        setTimeout(() => {
+            slider.style.scrollBehavior = 'smooth';
+            isJumping = false;
+        }, 50);
     }
 });
 

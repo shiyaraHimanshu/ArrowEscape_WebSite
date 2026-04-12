@@ -26,7 +26,6 @@ html {
 }
 
 body {
-    background-color: #000;
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
     line-height: 1.6;
@@ -346,7 +345,6 @@ nav {
     padding: 8rem 0;
     position: relative;
     overflow: hidden;
-    background: #020202;
 }
 
 .slider-wrapper {
