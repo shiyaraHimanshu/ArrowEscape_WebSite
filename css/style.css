@@ -381,6 +381,18 @@ nav {
     cursor: pointer;
     transition: var(--transition-fast);
     scroll-snap-align: center;
+    scroll-snap-stop: always; /* Prevent skipping cards */
+}
+
+@media (max-width: 768px) {
+    .game-card {
+        min-width: 85%; /* Shows one full card and peeks at others */
+        height: 450px;
+    }
+    .game-track {
+        gap: 20px;
+        padding: 0 20px;
+    }
 }
 
 .card-glass {
@@ -536,7 +548,6 @@ footer {
     padding: 6rem 5% 4rem;
     text-align: center;
     background: transparent;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .socials {
@@ -546,39 +557,35 @@ footer {
     margin-bottom: 2rem;
 }
 
-.social-item {
-    font-size: 1.5rem;
-    color: var(--text-dim);
-    transition: var(--transition-fast);
-}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
 
-/* Remove Orbitron and Neon logic */
-.logo {
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: initial;
-    color: #fff;
-    font-weight: 700;
-}
+    .hero-content h1 {
+        font-size: 3rem;
+        letter-spacing: -2px;
+    }
 
-.cta-button {
-    background: #fff;
-    color: #000;
-    font-family: 'Outfit', sans-serif;
-    border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    .telegram-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
 
-.cta-button:hover {
-    background: #f0f0f0;
-    box-shadow: 0 15px 40px rgba(255,255,255,0.1);
-}
-
-.tg-btn {
-    background: #007AFF;
-    color: #fff;
-}
-
-.tg-btn:hover {
-    background: #0066cc;
+    .stat-item h2 {
+        font-size: 2.5rem;
+    }
+    
+    .slider-arrow {
+        display: none; /* Swipe is better on mobile */
+    }
 }

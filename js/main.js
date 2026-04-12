@@ -67,33 +67,35 @@ const track = document.getElementById('game-track');
 
 let isJumping = false;
 
+function getSliderMetrics() {
+    const card = track.children[0];
+    const cardWidth = card.offsetWidth;
+    const style = window.getComputedStyle(track);
+    const gap = parseInt(style.gap) || 40;
+    return { cardWidth, gap };
+}
+
 function initSlider() {
     if (!track) return;
     
-    // Clone cards to create infinite effect (3 sets: [Clone] [Original] [Clone])
-    // Ensure correct order: [A B C] [A B C] [A B C]
+    // Clone cards to create infinite effect (3 sets)
     const cards = Array.from(track.children);
     cards.forEach(card => track.appendChild(card.cloneNode(true)));
-    // Use reverse to keep order when inserting before first child
     [...cards].reverse().forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
 
-    // Wait for layout to calculate jump
     setTimeout(() => {
-        const cardWidth = track.children[0].offsetWidth;
-        const gap = 40;
+        const { cardWidth, gap } = getSliderMetrics();
         const originalCount = cards.length;
         const startPos = (cardWidth + gap) * originalCount;
         
         slider.style.scrollBehavior = 'auto'; 
         slider.scrollLeft = startPos;
-        slider.style.scrollBehavior = 'smooth';
-    }, 150);
+    }, 200);
 }
 
 function scrollSlider(direction) {
     if (isJumping) return;
-    const cardWidth = track.children[0].offsetWidth;
-    const gap = 40;
+    const { cardWidth, gap } = getSliderMetrics();
     
     slider.style.scrollBehavior = 'smooth';
     slider.scrollBy({
@@ -101,33 +103,27 @@ function scrollSlider(direction) {
     });
 }
 
-// Seamless Infinite Reset Logic
+// Seamless Infinite Reset Logic - Optimized for Mobile
 slider.addEventListener('scroll', () => {
     if (isJumping) return;
 
-    const cards = Array.from(track.children);
-    const originalCount = cards.length / 3;
-    const cardWidth = cards[0].offsetWidth;
-    const gap = 40;
+    const { cardWidth, gap } = getSliderMetrics();
+    const originalCount = track.children.length / 3;
     const setWidth = (cardWidth + gap) * originalCount;
     
-    // Jump distance - only jump when far enough into the clones
-    if (slider.scrollLeft >= setWidth * 2) {
+    // Wider threshold for mobile to prevent jitter
+    const threshold = 10; 
+    
+    if (slider.scrollLeft >= setWidth * 2 - threshold) {
         isJumping = true;
         slider.style.scrollBehavior = 'auto';
         slider.scrollLeft = setWidth;
-        setTimeout(() => {
-            slider.style.scrollBehavior = 'smooth';
-            isJumping = false;
-        }, 50);
-    } else if (slider.scrollLeft <= 0) {
+        setTimeout(() => { isJumping = false; }, 50);
+    } else if (slider.scrollLeft <= threshold) {
         isJumping = true;
         slider.style.scrollBehavior = 'auto';
         slider.scrollLeft = setWidth;
-        setTimeout(() => {
-            slider.style.scrollBehavior = 'smooth';
-            isJumping = false;
-        }, 50);
+        setTimeout(() => { isJumping = false; }, 50);
     }
 });
 
