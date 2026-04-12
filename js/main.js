@@ -86,7 +86,7 @@ window.addEventListener('resize', initParticles);
 initParticles();
 animateParticles();
 
-// Game Logic
+// Game Modal Logic
 function openGame(gameFolder) {
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -98,6 +98,61 @@ function closeGame() {
     document.body.style.overflow = 'auto';
     iframe.src = '';
 }
+
+// Slider Logic
+const slider = document.getElementById('game-slider');
+const track = document.getElementById('game-track');
+
+function initSlider() {
+    if (!track) return;
+    
+    // Clone cards to create infinite effect
+    const cards = Array.from(track.children);
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        track.appendChild(clone);
+    });
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        track.insertBefore(clone, track.firstChild);
+    });
+
+    // Set initial scroll to middle (the original set)
+    const cardWidth = cards[0].offsetWidth + 40; // width + gap
+    slider.scrollLeft = cardWidth * cards.length;
+}
+
+function scrollSlider(direction) {
+    const cardWidth = track.children[0].offsetWidth + 40;
+    slider.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+    });
+}
+
+// Handle infinite jump
+slider.addEventListener('scroll', () => {
+    const cards = Array.from(track.children);
+    const originalCount = cards.length / 3;
+    const cardWidth = cards[0].offsetWidth + 40;
+    
+    if (slider.scrollLeft >= cardWidth * originalCount * 2) {
+        slider.scrollLeft = cardWidth * originalCount;
+    } else if (slider.scrollLeft <= 0) {
+        slider.scrollLeft = cardWidth * originalCount;
+    }
+});
+
+// Initialization
+window.addEventListener('resize', () => {
+    initParticles();
+});
+
+window.onload = () => {
+    initParticles();
+    animateParticles();
+    initSlider();
+};
 
 // Navbar Scroll Effect
 window.addEventListener('scroll', () => {

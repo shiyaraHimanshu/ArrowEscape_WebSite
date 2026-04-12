@@ -29,9 +29,9 @@
         <div class="float-arrow" style="top: 15%; right: 15%;">➔</div>
         <div class="float-arrow" style="bottom: 20%; left: 20%;">➔</div>
         
-        <div class="hero-content">
-            <h1 class="reveal">PLAY. ESCAPE.<br>REPEAT.</h1>
-            <p class="reveal" style="transition-delay: 0.2s;">Addictive Minimalist Games for Every Device. High Performance. Instant Rewards.</p>
+        <div class="hero-content reveal">
+            <h1>PLAY. ESCAPE.<br><span class="highlight-repeat">REPEAT.</span></h1>
+            <p class="hero-subtitle">Addictive Minimalist Games for Every Device.<br>High Performance. Instant Rewards.</p>
         </div>
     </section>
 
@@ -64,84 +64,138 @@
         </div>
     </section>
 
-    <!-- Games Section -->
-    <section class="grid-section" id="games">
+    <!-- Games Section with Horizontal Slider -->
+    <section class="games-section" id="games">
         <div class="section-header reveal">
             <h2>GAMES PORTAL</h2>
             <div class="underline"></div>
         </div>
-        
-        <div class="game-grid">
-            <!-- Game 1: Arrow Escape -->
-            <div class="game-item card-active reveal" onclick="openGame('ArrowEscape')">
-                <div class="thumb-container">
-                    <span class="badge badge-live">LIVE</span>
-                    <img src="assets/arrow_escape_tile.png" alt="Play Arrow Escape">
-                    <div class="game-hover-overlay">
-                        <span>TAP TO PLAY</span>
+
+        <div class="slider-wrapper reveal">
+            <button class="slider-arrow prev-arrow" onclick="scrollSlider(-1)">&#10094;</button>
+            
+            <div class="game-slider-container" id="game-slider">
+                <!-- Decorative Spheres -->
+                <div class="sphere sphere-1"></div>
+                <div class="sphere sphere-2"></div>
+                <div class="sphere sphere-3"></div>
+
+                <div class="game-track" id="game-track">
+                    <!-- Game 1 -->
+                    <div class="game-card" onclick="openGame('ArrowEscape')">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-live">LIVE</span>
+                                <img src="assets/arrow_escape_tile.png" alt="Arrow Escape">
+                            </div>
+                            <div class="card-content">
+                                <h4>ARROW ESCAPE</h4>
+                                <p>Precision puzzle maze challenge.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 2 -->
+                    <div class="game-card locked">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-soon">SOON</span>
+                                <img src="assets/coming_soon.png" alt="Nexus Shift">
+                            </div>
+                            <div class="card-content">
+                                <h4>NEXUS SHIFT</h4>
+                                <p>Jump through dimensions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 3 -->
+                    <div class="game-card locked">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-soon">SOON</span>
+                                <img src="assets/coming_soon.png" alt="Void Runner">
+                            </div>
+                            <div class="card-content">
+                                <h4>VOID RUNNER</h4>
+                                <p>Infinite neon arcade dash.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 4 -->
+                    <div class="game-card locked">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-soon">SOON</span>
+                                <img src="assets/coming_soon.png" alt="Cyber Grid">
+                            </div>
+                            <div class="card-content">
+                                <h4>CYBER GRID</h4>
+                                <p>Hack the system in real-time.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 5 -->
+                    <div class="game-card locked">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-soon">SOON</span>
+                                <img src="assets/coming_soon.png" alt="Echo Path">
+                            </div>
+                            <div class="card-content">
+                                <h4>ECHO PATH</h4>
+                                <p>Rhythm based memory puzzles.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 6 -->
+                    <div class="game-card locked">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-soon">SOON</span>
+                                <img src="assets/coming_soon.png" alt="Prism Core">
+                            </div>
+                            <div class="card-content">
+                                <h4>PRISM CORE</h4>
+                                <p>Light refraction physics.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 7 -->
+                    <div class="game-card locked">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-soon">SOON</span>
+                                <img src="assets/coming_soon.png" alt="Gravity Fall">
+                            </div>
+                            <div class="card-content">
+                                <h4>GRAVITY FALL</h4>
+                                <p>Vertical physics survival.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game 8 -->
+                    <div class="game-card locked">
+                        <div class="card-glass">
+                            <div class="card-image">
+                                <span class="badge badge-soon">SOON</span>
+                                <img src="assets/coming_soon.png" alt="Neon Strike">
+                            </div>
+                            <div class="card-content">
+                                <h4>NEON STRIKE</h4>
+                                <p>Fast-paced color matching.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="game-info">
-                    <h4>ARROW ESCAPE</h4>
-                    <p>Redirect arrows. Clear the path. Don't hit the walls.</p>
-                </div>
             </div>
 
-            <!-- Coming Soon Games (5-8 placeholders as requested) -->
-            <div class="game-item locked reveal">
-                <div class="thumb-container">
-                    <span class="badge badge-soon">SOON</span>
-                    <img src="assets/coming_soon.png" alt="Nexus Shift">
-                </div>
-                <div class="game-info">
-                    <h4>NEXUS SHIFT</h4>
-                    <p>Strategic dimension jumping puzzles.</p>
-                </div>
-            </div>
-
-            <div class="game-item locked reveal">
-                <div class="thumb-container">
-                    <span class="badge badge-soon">SOON</span>
-                    <img src="assets/coming_soon.png" alt="Void Runner">
-                </div>
-                <div class="game-info">
-                    <h4>VOID RUNNER</h4>
-                    <p>Infinite neon arcade runner.</p>
-                </div>
-            </div>
-
-            <div class="game-item locked reveal">
-                <div class="thumb-container">
-                    <span class="badge badge-soon">SOON</span>
-                    <img src="assets/coming_soon.png" alt="Cyber Grid">
-                </div>
-                <div class="game-info">
-                    <h4>CYBER GRID</h4>
-                    <p>Hack through the neural network.</p>
-                </div>
-            </div>
-
-            <div class="game-item locked reveal">
-                <div class="thumb-container">
-                    <span class="badge badge-soon">SOON</span>
-                    <img src="assets/coming_soon.png" alt="Echo Path">
-                </div>
-                <div class="game-info">
-                    <h4>ECHO PATH</h4>
-                    <p>Memory based rhythm challenge.</p>
-                </div>
-            </div>
-
-            <div class="game-item locked reveal">
-                <div class="thumb-container">
-                    <span class="badge badge-soon">SOON</span>
-                    <img src="assets/coming_soon.png" alt="Prism Core">
-                </div>
-                <div class="game-info">
-                    <h4>PRISM CORE</h4>
-                    <p>Refraction physics at its best.</p>
-                </div>
-            </div>
+            <button class="slider-arrow next-arrow" onclick="scrollSlider(1)">&#10095;</button>
         </div>
     </section>
 
