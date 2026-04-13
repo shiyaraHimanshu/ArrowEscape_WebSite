@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | UnderCity Games</title>
+    <meta name="description" content="Learn more about UnderCity Games, our mission, and our passion for creating fun, lightweight browser games.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --glass-card-bg: rgba(255, 255, 255, 0.03);
+            --glass-card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background: #000b18;
+            overflow-y: auto;
+        }
+
+        .policy-container {
+            max-width: 900px;
+            margin: 8rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .glass-panel {
+            background: var(--glass-card-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-card-border);
+            border-radius: 30px;
+            padding: 4rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent-cyan), transparent);
+        }
+
+        p, ul, li {
+            color: var(--text-dim);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-home:hover {
+            transform: translateX(-5px);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.1), rgba(0, 242, 255, 0.05));
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            padding: 3rem;
+            border-radius: 25px;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .contact-box h2::after {
+            display: none;
+        }
+
+        .contact-box h2 {
+            justify-content: center;
+            margin-top: 0;
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        .grid-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-card i {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .glass-panel {
+                padding: 2rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .policy-container {
+                margin-top: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="liquid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="policy-container">
+        <a href="/" class="back-home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            BACK TO GAMES
+        </a>
+
+        <div class="glass-panel">
+            <p style="text-align: center; font-weight: 600; color: var(--accent-cyan); margin-bottom: 0.5rem; letter-spacing: 2px;">DISCOVER</p>
+            <h1>About Us</h1>
+
+            <p style="text-align: center; font-size: 1.3rem;">Welcome to <strong>UnderCity Games</strong> – your destination for fun, fast, and interactive browser-based puzzle games.</p>
+            
+            <p>UnderCity Games is a modern online gaming platform focused on delivering lightweight and engaging games that can be played instantly without downloads or registration. Our goal is to make gaming simple, accessible, and enjoyable for everyone.</p>
+
+            <h2>🎮 Who We Are</h2>
+            <p>UnderCity Games is an independent game development platform specializing in Unity WebGL and HTML5 games. We design games with a strong focus on:</p>
+            <ul>
+                <li><strong>Smooth performance</strong> across all devices</li>
+                <li><strong>Clean user experience</strong> with minimal friction</li>
+                <li><strong>Creative visuals</strong> and modern animations</li>
+            </ul>
+            <p>Our approach combines simple core mechanics with innovative design variations to create fresh and enjoyable gameplay experiences.</p>
+
+            <h2>🧩 What We Do</h2>
+            <p>We create and publish puzzle-based games that are easy to understand, challenging to master, and accessible across devices. Our games share a common gameplay foundation but are enhanced with different themes, characters, animations, and mechanics.</p>
+            
+            <div class="highlight-card">
+                <p style="margin-bottom: 1rem;"><strong>Current & Future Highlights:</strong></p>
+                <ul>
+                    <li><strong>Arrow Escape</strong> – a strategic puzzle game where players remove arrows in the correct sequence.</li>
+                    <li>Future variations may include different concepts such as characters, environments, and interactive elements while maintaining engaging gameplay.</li>
+                </ul>
+            </div>
+
+            <h2>🌐 Play Anywhere</h2>
+            <p>Our games are designed to be played instantly across multiple platforms, directly on our website or via <strong>Telegram Mini Apps</strong>. This ensures a seamless experience whether you are on mobile or desktop.</p>
+
+            <div class="grid-stats">
+                <div class="stat-card">
+                    <i>⚡</i>
+                    <strong>Fast Loading</strong>
+                </div>
+                <div class="stat-card">
+                    <i>🎮</i>
+                    <strong>Instant Play</strong>
+                </div>
+                <div class="stat-card">
+                    <i>📱</i>
+                    <strong>Cross Platform</strong>
+                </div>
+            </div>
+
+            <h2>🎯 Our Mission</h2>
+            <p>Our mission is to build high-quality casual games that are fast-loading, lightweight, fun, and addictive. We aim to create a growing collection of games that provide entertainment without complexity for players worldwide.</p>
+
+            <h2>🔒 Transparency & Trust</h2>
+            <p>At UnderCity Games, we value user trust and transparency:</p>
+            <ul>
+                <li>No login or personal data required to play</li>
+                <li>No hidden charges or payments</li>
+                <li>Safe and simple gaming experience</li>
+            </ul>
+
+            <h2>📈 Our Vision</h2>
+            <p>We aim to expand UnderCity Games into a recognizable gaming platform featuring multiple creative puzzle experiences and cross-platform accessibility.</p>
+
+            <div class="contact-box">
+                <h2>📩 Contact Us</h2>
+                <p>If you have any questions, feedback, or business inquiries, feel free to contact us:</p>
+                <p style="font-size: 1.5rem; font-weight: 700; color: var(--accent-cyan); margin-top: 1rem;">
+                    📧 <a href="mailto:undercitygame@gmail.com" style="color: inherit; text-decoration: none;">undercitygame@gmail.com</a>
+                </p>
+            </div>
+            
+            <p style="margin-top: 4rem; text-align: center; font-style: italic;">Thank you for visiting <strong>UnderCity Games</strong> and being part of our journey.</p>
+        </div>
+    </div>
+
+    <footer style="padding: 4rem 2rem; opacity: 0.5;">
+        <p style="font-size: 0.8rem; text-align: center;">&copy; 2026 UnderCity Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

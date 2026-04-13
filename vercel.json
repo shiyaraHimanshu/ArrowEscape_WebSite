@@ -54,6 +54,10 @@
     {
       "source": "/terms-and-conditions",
       "destination": "/legal/terms.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
     }
   ]
 }
