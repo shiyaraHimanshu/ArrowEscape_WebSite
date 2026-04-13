@@ -78,19 +78,29 @@ function getSliderMetrics() {
 function initSlider() {
     if (!track) return;
     
-    // Clone cards to create infinite effect (3 sets)
-    const cards = Array.from(track.children);
-    cards.forEach(card => track.appendChild(card.cloneNode(true)));
-    [...cards].reverse().forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
+    // Set initial layout
+    const originalCards = Array.from(track.children);
+    const originalCount = originalCards.length;
+    
+    // Clone cards to create infinite effect (3 sets total)
+    originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
+    [...originalCards].reverse().forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
 
+    // Wait for layout to settle, then center the first original card
     setTimeout(() => {
         const { cardWidth, gap } = getSliderMetrics();
-        const originalCount = cards.length;
-        const startPos = (cardWidth + gap) * originalCount;
+        const sliderWidth = slider.offsetWidth;
         
+        // Calculate the base scroll position: Start of second set
+        let startPos = (cardWidth + gap) * originalCount;
+        
+        // Offset to center the card within the container
+        const centerOffset = (sliderWidth - cardWidth) / 2;
+        startPos -= centerOffset;
+
         slider.style.scrollBehavior = 'auto'; 
         slider.scrollLeft = startPos;
-    }, 200);
+    }, 250);
 }
 
 function scrollSlider(direction) {
@@ -103,7 +113,7 @@ function scrollSlider(direction) {
     });
 }
 
-// Seamless Infinite Reset Logic - Optimized for Mobile
+// Seamless Infinite Reset Logic
 slider.addEventListener('scroll', () => {
     if (isJumping) return;
 
@@ -111,25 +121,47 @@ slider.addEventListener('scroll', () => {
     const originalCount = track.children.length / 3;
     const setWidth = (cardWidth + gap) * originalCount;
     
-    // Wider threshold for mobile to prevent jitter
-    const threshold = 10; 
+    // Threshold depends on screen width
+    const threshold = 50; 
     
-    if (slider.scrollLeft >= setWidth * 2 - threshold) {
+    if (slider.scrollLeft >= (setWidth * 2) - (slider.offsetWidth / 2)) {
         isJumping = true;
         slider.style.scrollBehavior = 'auto';
-        slider.scrollLeft = setWidth;
+        slider.scrollLeft -= setWidth;
         setTimeout(() => { isJumping = false; }, 50);
     } else if (slider.scrollLeft <= threshold) {
         isJumping = true;
         slider.style.scrollBehavior = 'auto';
-        slider.scrollLeft = setWidth;
+        slider.scrollLeft += setWidth;
         setTimeout(() => { isJumping = false; }, 50);
     }
 });
 
 // Initialization
+let autoSlideInterval;
+
+function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideInterval = setInterval(() => {
+        scrollSlider(1);
+    }, 3000);
+}
+
+function stopAutoSlide() {
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+    }
+}
+
 window.onload = () => {
     initSlider();
+    startAutoSlide();
+    
+    // Pause on interaction
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+    slider.addEventListener('touchstart', stopAutoSlide);
+    slider.addEventListener('touchend', startAutoSlide);
 };
 
 // Navbar Scroll Effect
