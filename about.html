@@ -7,89 +7,13 @@
     <meta name="description" content="Learn more about UnderCity Games, our mission, and our passion for creating fun, lightweight browser games.">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        :root {
-            --glass-card-bg: rgba(255, 255, 255, 0.03);
-            --glass-card-border: rgba(255, 255, 255, 0.08);
-        }
-
-        body {
-            background: #000b18;
-            overflow-y: auto;
-        }
-
-        .policy-container {
-            max-width: 900px;
-            margin: 8rem auto 4rem;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .glass-panel {
-            background: var(--glass-card-bg);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border: 1px solid var(--glass-card-border);
-            border-radius: 30px;
-            padding: 4rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(to right, #fff, var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        h2::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to right, var(--accent-cyan), transparent);
-        }
-
-        p, ul, li {
-            color: var(--text-dim);
-            font-size: 1.15rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
+        /* Only keeping page-specific tweaks if any, but most are now in style.css */
         .highlight-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 2.5rem;
             border-radius: 20px;
             margin: 2rem 0;
-        }
-
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .back-home:hover {
-            transform: translateX(-5px);
         }
 
         .contact-box {
@@ -101,18 +25,8 @@
             text-align: center;
         }
 
-        .contact-box h2::after {
-            display: none;
-        }
-
-        .contact-box h2 {
-            justify-content: center;
-            margin-top: 0;
-        }
-
-        strong {
-            color: #fff;
-        }
+        .contact-box h2::after { display: none; }
+        .contact-box h2 { justify-content: center; margin-top: 0; }
 
         .grid-stats {
             display: grid;
@@ -127,24 +41,6 @@
             padding: 1.5rem;
             border-radius: 15px;
             text-align: center;
-        }
-
-        .stat-card i {
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .glass-panel {
-                padding: 2rem;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-            .policy-container {
-                margin-top: 4rem;
-            }
         }
     </style>
 </head>

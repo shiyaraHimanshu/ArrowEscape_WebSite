@@ -1,16 +1,18 @@
-:root {
-    /* Apple Liquid Glass Palette */
+    /* Apple Liquid Glass Palette - Refined */
     --accent-blue: #007AFF;
     --accent-cyan: #5AC8FA;
-    --bg-main: #f0f0f5; /* Light fallback but will use dark themes mostly */
+    --accent-purple: #AF52DE;
+    --bg-main: #000b18;
     --text-main: #ffffff;
-    --text-dim: rgba(255, 255, 255, 0.7);
+    --text-dim: rgba(255, 255, 255, 0.6);
     
-    /* Effects */
-    --glass-blur: 50px;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    /* Effects - Enhanced */
+    --glass-blur: 40px;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
     --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --card-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    --neon-glow: 0 0 20px rgba(90, 200, 250, 0.3);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
@@ -45,8 +47,17 @@ h1, h2, h3, .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #001f3f 0%, #000b18 100%);
+    background: radial-gradient(circle at top right, #001f3f 0%, #000b18 100%);
     z-index: -2;
+}
+
+.liquid-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    opacity: 0.03;
+    pointer-events: none;
 }
 
 .blob {
@@ -105,10 +116,13 @@ nav {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: #fff;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
+    background: linear-gradient(to right, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
@@ -169,16 +183,19 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: clamp(3.5rem, 10vw, 6rem);
-    font-weight: 700;
-    margin-bottom: 1rem;
-    line-height: 1;
+    font-size: clamp(4rem, 12vw, 7.5rem);
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 0.9;
     color: #fff;
-    letter-spacing: -3px;
+    letter-spacing: -4px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .highlight-repeat {
-    color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.05));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
@@ -226,13 +243,13 @@ nav {
 .telegram-card {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    background: linear-gradient(135deg, rgba(0, 136, 204, 0.2), rgba(0, 242, 255, 0.05));
+    gap: 4rem;
+    background: linear-gradient(135deg, rgba(0, 136, 204, 0.15), rgba(0, 242, 255, 0.05));
     border: 1px solid rgba(0, 136, 204, 0.3);
-    border-radius: 20px;
-    padding: 3rem;
-    backdrop-filter: var(--glass);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    border-radius: 40px;
+    padding: 5rem;
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
 }
 
 .tg-content h3 {
@@ -280,8 +297,10 @@ nav {
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 1rem;
+    letter-spacing: -1px;
 }
 
 .underline {
@@ -400,11 +419,12 @@ nav {
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
-    border-radius: 40px; /* Very rounded like Apple cards */
+    border-radius: 40px; 
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: var(--transition-fast);
+    box-shadow: var(--card-shadow);
 }
 
 .game-card:hover .card-glass {
@@ -490,17 +510,36 @@ nav {
 
 /* Stats Section */
 .stats {
-    background: transparent;
-    padding: 6rem 5%;
+    padding: 8rem 5%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 4rem;
     text-align: center;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 30px;
+    min-width: 280px;
+    transition: var(--transition-fast);
+    box-shadow: var(--card-shadow);
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-cyan);
 }
 
 .stat-item h2 {
-    font-size: 3.5rem;
-    color: var(--accent-cyan);
+    font-size: 4rem;
+    color: #fff;
     margin-bottom: 0.5rem;
+    font-weight: 800;
 }
 
 /* Game Overlay */
@@ -543,9 +582,11 @@ iframe {
 
 /* Footer */
 footer {
-    padding: 6rem 5% 4rem;
+    padding: 10rem 5% 6rem;
     text-align: center;
     background: transparent;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 5rem;
 }
 
 .socials {
@@ -589,8 +630,8 @@ footer {
 }
 /* SEO & Content Sections */
 .info-section {
-    padding: 6rem 10%;
-    max-width: 1200px;
+    padding: 10rem 10%;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -599,15 +640,18 @@ footer {
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    padding: 4rem;
-    margin-bottom: 4rem;
+    border-radius: 40px;
+    padding: 5rem;
+    margin-bottom: 6rem;
+    box-shadow: var(--card-shadow);
 }
 
 .glass-content-card h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
     color: #fff;
+    font-weight: 800;
+    letter-spacing: -2px;
 }
 
 .glass-content-card h3 {
@@ -682,3 +726,74 @@ footer {
         font-size: 1.8rem;
     }
 }
+
+/* Legal & Informational Pages */
+.policy-container {
+    max-width: 1000px;
+    margin: 10rem auto 6rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    padding: 5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.glass-panel h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -2px;
+}
+
+.glass-panel h2 {
+    font-size: 2.2rem;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.glass-panel h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent-cyan), transparent);
+}
+
+.glass-panel p, .glass-panel ul, .glass-panel li {
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    transition: var(--transition-fast);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.back-home:hover {
+    transform: translateX(-10px);
+    text-shadow: var(--neon-glow);
+}
+
