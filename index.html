@@ -12,24 +12,60 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
-
     <nav id="navbar">
-        <div class="logo">ARROW ESCAPE</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-        <div></div>
+        <div class="nav-content">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                    <path d="M12 2L2 22h20L12 2z" fill="#ff2a2a"/>
+                    <path d="M12 8l-6 12h12L12 8z" fill="#000"/>
+                </svg>
+                ARROW ESCAPE
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <button class="nav-cta">PLAY NOW</button>
+        </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-content reveal">
-            <h1>PLAY. ESCAPE.<br><span class="highlight-repeat">REPEAT.</span></h1>
+            <h1>PLAY. ESCAPE.<br><span class="highlight-red">RELOAD.</span></h1>
             <p class="hero-subtitle">
-                Welcome to UnderCity Games – play addictive puzzle games like Arrow Escape directly in your browser. 
-                No download, no signup, just instant gameplay on mobile and desktop.
+                The ultimate destination for precision puzzles. 
+                Experience UnderCity Games – where logic meets speed.
             </p>
+            
+            <div class="hero-games">
+                <!-- Featured Game 1 -->
+                <div class="featured-game-card" onclick="openGame('ArrowEscape')">
+                    <div class="card-glow"></div>
+                    <div class="game-img">
+                        <img src="assets/arrow_escape_tile.png" alt="Arrow Escape">
+                        <span class="badge b-live">ACTIVE</span>
+                    </div>
+                    <div class="game-info">
+                        <h3>ARROW ESCAPE</h3>
+                        <p>Master the Maze</p>
+                        <button class="play-btn">PLAY NOW</button>
+                    </div>
+                </div>
+
+                <!-- Featured Game 2 (Teaser) -->
+                <div class="featured-game-card teaser">
+                    <div class="card-glow"></div>
+                    <div class="game-img">
+                        <img src="assets/coming_soon.png" alt="Nexus Shift">
+                        <span class="badge b-soon">ENCRYPTED</span>
+                    </div>
+                    <div class="game-info">
+                        <h3>NEXUS SHIFT</h3>
+                        <p>Coming Soon</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -135,39 +171,39 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
+                </div> <!-- end game-track -->
+            </div> <!-- end game-slider-container -->
+            <!-- Next Arrow restored -->
             <button class="slider-arrow next-arrow" onclick="scrollSlider(1)">&#10095;</button>
-        </div>
-
-        <!-- Detailed Game Description -->
-        <div class="info-section reveal" style="padding-top: 4rem;">
-            <div class="glass-content-card">
-                <h2>Arrow Escape – Free Browser Puzzle Game</h2>
-                <p>
-                    Arrow Escape is a fun and addictive puzzle game where players must remove arrows in the correct sequence to clear the board. 
-                    It challenges your logic, timing, and strategic thinking.
-                </p>
-                <h3>How to Play</h3>
-                <ul>
-                    <li>Tap on arrows to remove them</li>
-                    <li>Follow the correct direction</li>
-                    <li>Clear all arrows to win the level</li>
-                </ul>
-                <h3>Game Features</h3>
-                <ul>
-                    <li>Simple and intuitive controls</li>
-                    <li>Challenging puzzle mechanics</li>
-                    <li>Smooth animations and effects</li>
-                    <li>Playable instantly in browser</li>
-                </ul>
-            </div>
         </div>
     </section>
 
-    <!-- Trust & FAQ Section -->
+    <!-- Detailed Content & FAQ Section -->
     <section class="info-section reveal">
+        
+        <!-- Detailed Game Description Card -->
+        <div class="glass-content-card">
+            <h2>Arrow Escape – Free Browser Puzzle Game</h2>
+            <p>
+                Arrow Escape is a fun and addictive puzzle game where players must remove arrows in the correct sequence to clear the board. 
+                It challenges your logic, timing, and strategic thinking.
+            </p>
+            <h3>How to Play</h3>
+            <ul>
+                <li>Tap on arrows to remove them</li>
+                <li>Follow the correct direction</li>
+                <li>Clear all arrows to win the level</li>
+            </ul>
+            <h3>Game Features</h3>
+            <ul>
+                <li>Simple and intuitive controls</li>
+                <li>Challenging puzzle mechanics</li>
+                <li>Smooth animations and effects</li>
+                <li>Playable instantly in browser</li>
+            </ul>
+        </div>
+
+        <!-- Trust & Features Card -->
         <div class="glass-content-card">
             <h2>Why Choose UnderCity Games?</h2>
             <ul style="margin-bottom: 4rem;">
@@ -202,25 +238,32 @@
         </div>
     </section>
 
-    <footer>
-
-        <div class="logo" style="font-size: 1.2rem; margin-bottom: 0.5rem;">UNDERCITY GAMES</div>
-        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem;">Contact: <a href="mailto:undercitygame@gmail.com" style="color: var(--accent-cyan);">undercitygame@gmail.com</a></p>
-        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 UnderCity Games. All rights reserved.</p>
-        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem;">
-            <a href="/about" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">About Us</a>
-            <a href="/privacyPolicy" target="_blank" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Privacy Policy</a>
-            <a href="/terms-and-conditions" target="_blank" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Terms</a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 10px rgba(255, 42, 42, 0.4));">
+                    <path d="M12 2L2 22h20L12 2z" fill="#ff2a2a"/>
+                    <path d="M12 8l-6 12h12L12 8z" fill="#000"/>
+                </svg>
+                UNDERCITY GAMES
+            </div>
+            
+            <p class="footer-contact">For inquiries: <a href="mailto:undercitygame@gmail.com">undercitygame@gmail.com</a></p>
+            
+            <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/privacyPolicy" target="_blank">Privacy Policy</a>
+                <a href="/terms-and-conditions" target="_blank">Terms</a>
+            </div>
+            
+            <p class="footer-copyright">&copy; 2026 UnderCity Games. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Fullscreen Game Modal -->
     <div id="game-modal" class="game-modal">
-        <div class="modal-header">
-            <div class="logo" style="font-size: 1rem;">ARROW ESCAPE</div>
-            <button class="close-btn" onclick="closeGame()">&times;</button>
-        </div>
         <iframe id="game-iframe" src=""></iframe>
+        <button class="close-btn" onclick="closeGame()">EXIT GAME</button>
     </div>
 
     <script src="js/main.js"></script>
