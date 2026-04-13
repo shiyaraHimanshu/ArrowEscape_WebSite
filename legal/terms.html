@@ -3,28 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Arrow Escape</title>
+    <title>Terms and Conditions | UnderCity Games</title>
+    <meta name="description" content="Terms and Conditions for UnderCity Games and Arrow Escape.">
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; color: var(--text-secondary); }
-        h1, h2 { color: var(--text-primary); margin-top: 2rem; }
+        :root {
+            --glass-card-bg: rgba(255, 255, 255, 0.03);
+            --glass-card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background: #000b18;
+            overflow-y: auto;
+        }
+
+        .policy-container {
+            max-width: 900px;
+            margin: 8rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .glass-panel {
+            background: var(--glass-card-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-card-border);
+            border-radius: 30px;
+            padding: 4rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .last-updated {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            display: block;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            border-left: 4px solid var(--accent-cyan);
+            padding-left: 1.5rem;
+        }
+
+        p, ul, li {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-cyan);
+            position: absolute;
+            left: -1.5rem;
+            font-weight: bold;
+        }
+
+        .contact-box {
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 4rem;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-home:hover {
+            transform: translateX(-5px);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--glass-card-border), transparent);
+            margin: 4rem 0;
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .glass-panel {
+                padding: 2rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .policy-container {
+                margin-top: 4rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">ARROW ESCAPE</div>
-    </header>
-    <div class="content">
-        <h1>Terms of Service</h1>
-        <p>Welcome to Arrow Escape. By accessing our website, you agree to these terms.</p>
-        
-        <h2>Usage</h2>
-        <p>Our games are provided for free for personal, non-commercial use. You may not modify, distribute, or reverse engineer any part of the games or the website.</p>
+    <div class="liquid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-        <h2>Disclaimer</h2>
-        <p>We provide the website and games "as is" without any warranties. We are not responsible for any issues arising from the use of our site.</p>
+    <div class="policy-container">
+        <a href="/" class="back-home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            BACK TO GAMES
+        </a>
 
-        <a href="../index.html" style="display: inline-block; margin-top: 2rem; color: var(--neon-blue);">← Back to Home</a>
+        <div class="glass-panel">
+            <h1>Terms and Conditions</h1>
+            <span class="last-updated">Last Updated: April 13, 2026</span>
+
+            <p>Welcome to our website. By accessing and using our website and games, you agree to comply with and be bound by the following Terms and Conditions.</p>
+            <p>If you do not agree with these terms, please do not use our website.</p>
+
+            <hr>
+
+            <h2>1. Use of the Website</h2>
+            <p>This website provides browser-based games for entertainment purposes only.</p>
+            <p>By using this website, you agree:</p>
+            <ul>
+                <li>To use the website only for lawful purposes</li>
+                <li>Not to misuse, disrupt, or attempt to hack the website</li>
+                <li>Not to use any automated systems (bots, scripts) to access or interact with the games</li>
+            </ul>
+
+            <h2>2. Games and Content</h2>
+            <p>We offer puzzle-based games (such as Arrow Escape and similar concept games with different designs and animations).</p>
+            <ul>
+                <li>All games are free to play</li>
+                <li>No payment is required to access any content</li>
+                <li>Gameplay may vary across different games but core mechanics may be similar</li>
+            </ul>
+            <p>We reserve the right to modify, update, or remove games at any time without notice.</p>
+
+            <h2>3. Intellectual Property</h2>
+            <p>All content on this website, including games, graphics, animations, logos, and code is the property of the website owner unless otherwise stated.</p>
+            <p>You may not:</p>
+            <ul>
+                <li>Copy, reproduce, or distribute our content</li>
+                <li>Reverse engineer or reuse game logic for commercial purposes</li>
+            </ul>
+
+            <h2>4. Third-Party Services</h2>
+            <p>Our website may include advertisements (such as Google AdSense) and links to external platforms (including Telegram Mini Apps).</p>
+            <p>We are not responsible for:</p>
+            <ul>
+                <li>Content on third-party websites</li>
+                <li>Any data collection or practices of third-party services</li>
+            </ul>
+            <p>Use of third-party services is at your own risk.</p>
+
+            <h2>5. Telegram Mini App Usage</h2>
+            <p>Some of our games are also accessible via Telegram Mini Apps.</p>
+            <p>When using our games through Telegram:</p>
+            <ul>
+                <li>You are also subject to Telegram’s terms and policies</li>
+                <li>We do not control Telegram’s services or data handling</li>
+            </ul>
+
+            <h2>6. Disclaimer</h2>
+            <p>All games and content are provided <strong>“as is”</strong> without warranties of any kind.</p>
+            <p>We do not guarantee:</p>
+            <ul>
+                <li>Error-free gameplay</li>
+                <li>Continuous availability of the website</li>
+                <li>That the games will meet your expectations</li>
+            </ul>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>We are not liable for any loss of data, device issues, interruptions in gameplay, or any damages resulting from the use of our website. Use the website at your own risk.</p>
+
+            <h2>8. User Conduct</h2>
+            <p>You agree not to attempt to exploit bugs or glitches, interfere with website performance, or engage in any activity that harms the platform or other users.</p>
+
+            <h2>9. Changes to Terms</h2>
+            <p>We may update these Terms and Conditions at any time. Continued use of the website after changes means you accept the updated terms.</p>
+
+            <h2>10. Termination</h2>
+            <p>We reserve the right to restrict or block access to the website if users violate these terms.</p>
+
+            <h2>11. Governing Law</h2>
+            <p>These Terms shall be governed in accordance with the laws of your jurisdiction.</p>
+
+            <div class="contact-box">
+                <h2>12. Contact Us</h2>
+                <p>If you have any questions regarding these Terms, you can contact us at:</p>
+                <p>📧 <a href="mailto:undercitygame@gmail.com" style="color: var(--accent-cyan); text-decoration: none; font-weight: 700;">undercitygame@gmail.com</a></p>
+            </div>
+
+            <p style="margin-top: 4rem; font-style: italic; text-align: center;">By using this website, you agree to these Terms and Conditions.</p>
+        </div>
     </div>
+
+    <footer style="padding: 4rem 2rem; opacity: 0.5;">
+        <p style="font-size: 0.8rem; text-align: center;">&copy; 2026 UnderCity Games. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -50,6 +50,10 @@
     {
       "source": "/privacyPolicy",
       "destination": "/legal/privacy.html"
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/legal/terms.html"
     }
   ]
 }
