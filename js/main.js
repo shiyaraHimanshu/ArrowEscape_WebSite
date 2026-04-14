@@ -211,7 +211,7 @@ window.addEventListener('load', () => {
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.style.padding = '1rem 5%';
-        navbar.style.background = 'rgba(255, 255, 255, 0.05)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.8)';
         navbar.style.backdropFilter = 'blur(30px)';
     } else {
         navbar.style.padding = '1.5rem 5%';

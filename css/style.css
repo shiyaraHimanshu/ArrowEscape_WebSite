@@ -1,18 +1,18 @@
 :root {
-    /* Gaming Red & Dark Palette */
+    /* Gaming Red & Light Palette */
     --accent-red: #ff2a2a;
-    --accent-red-glow: rgba(255, 42, 42, 0.5);
-    --bg-main: #050505;
-    --bg-darker: #000000;
-    --text-main: #ffffff;
-    --text-dim: rgba(255, 255, 255, 0.6);
+    --accent-red-glow: rgba(255, 42, 42, 0.3);
+    --bg-main: #ffffff;
+    --bg-darker: #f8f8f8;
+    --text-main: #000000;
+    --text-dim: rgba(0, 0, 0, 0.6);
     
-    /* Effects - More Aggressive Gaming Style */
-    --glass-blur: 20px;
-    --glass-bg: rgba(20, 20, 20, 0.7);
-    --glass-border: rgba(255, 42, 42, 0.2);
+    /* Effects - Light Premium Style */
+    --glass-blur: 30px;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 42, 42, 0.15);
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --red-glow: 0 0 20px var(--accent-red-glow);
+    --red-glow: 0 10px 40px rgba(255, 42, 42, 0.2);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
@@ -50,7 +50,7 @@ h1, h2, h3, .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, #1a0202 0%, #050505 100%);
+    background: radial-gradient(circle at center, #ffffff 0%, #f8f8f8 100%);
     z-index: -2;
 }
 
@@ -66,7 +66,7 @@ h1, h2, h3, .logo {
 .blob-1 {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, #ff2a2a0a 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 42, 42, 0.05) 0%, transparent 70%);
     top: -100px;
     right: -100px;
 }
@@ -74,7 +74,7 @@ h1, h2, h3, .logo {
 .blob-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #ff2a2a05 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 42, 42, 0.03) 0%, transparent 70%);
     bottom: -100px;
     left: -100px;
     animation-delay: -5s;
@@ -83,7 +83,7 @@ h1, h2, h3, .logo {
 .blob-3 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, #ff2a2a0a 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 42, 42, 0.05) 0%, transparent 70%);
     top: 40%;
     left: 20%;
     animation-delay: -10s;
@@ -116,7 +116,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #fff;
+    color: #000;
     letter-spacing: -1px;
     display: flex;
     align-items: center;
@@ -235,7 +235,7 @@ nav {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1;
-    color: #fff;
+    color: #000;
     letter-spacing: -3px;
 }
 
@@ -304,7 +304,7 @@ nav {
 .game-info h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: #000;
 }
 
 .game-info p {
@@ -387,7 +387,7 @@ nav {
 .tg-content h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #fff;
+    color: #000;
 }
 
 .tg-content p {
@@ -557,8 +557,9 @@ nav {
 
 .game-card:hover .card-glass {
     transform: scale(1.02);
-    border-color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-red);
+    background: #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 .card-image {
@@ -600,7 +601,7 @@ nav {
 .card-content h4 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: #000;
 }
 
 .card-content p {
@@ -616,9 +617,9 @@ nav {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #333;
     font-size: 1.2rem;
     cursor: pointer;
     display: flex;
@@ -626,7 +627,7 @@ nav {
     justify-content: center;
     z-index: 100;
     transition: var(--transition-fast);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .slider-arrow:hover {
@@ -736,7 +737,7 @@ iframe {
     gap: 0.8rem;
     font-size: 1.5rem;
     font-weight: 800;
-    color: #fff;
+    color: #000;
     letter-spacing: -1px;
     margin-bottom: 0.5rem;
 }
@@ -780,10 +781,10 @@ iframe {
 }
 
 .footer-copyright {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.4);
     font-size: 0.8rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     width: 100%;
 }
 
