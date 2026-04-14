@@ -60,85 +60,79 @@ function closeGame() {
     window.location.href = '../';
 }
 
-// Slider Logic
+// New Robust Slider Logic
 const slider = document.getElementById('game-slider');
 const track = document.getElementById('game-track');
+let currentIndex = 0;
+let originalCount = 0;
+let isAnimating = false;
 
-let isJumping = false;
-
-function getSliderMetrics() {
-    const card = track.children[0];
-    const cardWidth = card.offsetWidth;
+function getCardMetrics() {
+    const cards = Array.from(track.children);
+    if (cards.length === 0) return { width: 0, gap: 0 };
+    const cardWidth = cards[0].offsetWidth;
     const style = window.getComputedStyle(track);
     const gap = parseInt(style.gap) || 40;
     return { cardWidth, gap };
 }
 
+function updateSliderPosition(smooth = true) {
+    const { cardWidth, gap } = getCardMetrics();
+    if (cardWidth === 0) return;
+    
+    const sliderWidth = slider.offsetWidth;
+    const centerOffset = (sliderWidth - cardWidth) / 2;
+    const trackPadding = 40; // Matches CSS padding: 0 40px
+    
+    // Calculate offset to perfectly center the currentIndex card
+    const offset = (currentIndex * (cardWidth + gap)) + trackPadding - centerOffset;
+    
+    track.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+    track.style.transform = `translateX(-${offset}px)`;
+}
+
 function initSlider() {
     if (!track) return;
     
-    // Set initial layout
     const originalCards = Array.from(track.children);
-    const originalCount = originalCards.length;
+    originalCount = originalCards.length;
     
-    // Clone cards to create infinite effect (3 sets total)
+    // Add clones for infinite effect (Set 1 | Original | Set 2)
     originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
     [...originalCards].reverse().forEach(card => track.insertBefore(card.cloneNode(true), track.firstChild));
-
-    // Wait for layout to settle, then center the first original card
+    
+    // Start at the first original card (middle set)
+    currentIndex = originalCount;
+    
+    // Wait for layout to calculate correctly
     setTimeout(() => {
-        const { cardWidth, gap } = getSliderMetrics();
-        const sliderWidth = slider.offsetWidth;
-        
-        // Calculate the base scroll position: Start of second set
-        let startPos = (cardWidth + gap) * originalCount;
-        
-        // Offset to center the card within the container
-        const centerOffset = (sliderWidth - cardWidth) / 2;
-        startPos -= centerOffset;
-
-        slider.style.scrollBehavior = 'auto'; 
-        slider.scrollLeft = startPos;
-    }, 250);
+        updateSliderPosition(false);
+    }, 100);
 }
 
 function scrollSlider(direction) {
-    if (isJumping) return;
-    const { cardWidth, gap } = getSliderMetrics();
+    if (isAnimating) return;
     
-    slider.style.scrollBehavior = 'smooth';
-    slider.scrollBy({
-        left: direction * (cardWidth + gap)
-    });
+    isAnimating = true;
+    currentIndex += direction;
+    updateSliderPosition(true);
 }
 
-// Seamless Infinite Reset Logic
-slider.addEventListener('scroll', () => {
-    if (isJumping) return;
-
-    const { cardWidth, gap } = getSliderMetrics();
-    const originalCount = track.children.length / 3;
-    const setWidth = (cardWidth + gap) * originalCount;
+// Seamless loop at transition end
+track.addEventListener('transitionend', () => {
+    isAnimating = false;
     
-    // Threshold depends on screen width
-    const threshold = 50; 
-    
-    if (slider.scrollLeft >= (setWidth * 2) - (slider.offsetWidth / 2)) {
-        isJumping = true;
-        slider.style.scrollBehavior = 'auto';
-        slider.scrollLeft -= setWidth;
-        setTimeout(() => { isJumping = false; }, 50);
-    } else if (slider.scrollLeft <= threshold) {
-        isJumping = true;
-        slider.style.scrollBehavior = 'auto';
-        slider.scrollLeft += setWidth;
-        setTimeout(() => { isJumping = false; }, 50);
+    if (currentIndex >= originalCount * 2) {
+        currentIndex -= originalCount;
+        updateSliderPosition(false);
+    } else if (currentIndex < originalCount) {
+        currentIndex += originalCount;
+        updateSliderPosition(false);
     }
 });
 
-// Initialization
+// Auto slide
 let autoSlideInterval;
-
 function startAutoSlide() {
     stopAutoSlide();
     autoSlideInterval = setInterval(() => {
@@ -147,21 +141,25 @@ function startAutoSlide() {
 }
 
 function stopAutoSlide() {
-    if (autoSlideInterval) {
-        clearInterval(autoSlideInterval);
-    }
+    clearInterval(autoSlideInterval);
 }
 
-window.onload = () => {
+window.addEventListener('load', () => {
     initSlider();
     startAutoSlide();
     
-    // Pause on interaction
-    slider.addEventListener('mouseenter', stopAutoSlide);
-    slider.addEventListener('mouseleave', startAutoSlide);
-    slider.addEventListener('touchstart', stopAutoSlide);
-    slider.addEventListener('touchend', startAutoSlide);
-};
+    // Interaction handling
+    const container = document.querySelector('.slider-wrapper');
+    container.addEventListener('mouseenter', stopAutoSlide);
+    container.addEventListener('mouseleave', startAutoSlide);
+    container.addEventListener('touchstart', stopAutoSlide);
+    container.addEventListener('touchend', startAutoSlide);
+
+    // Re-center on resize
+    window.addEventListener('resize', () => {
+        updateSliderPosition(false);
+    });
+});
 
 // Navbar Scroll Effect
 window.addEventListener('scroll', () => {

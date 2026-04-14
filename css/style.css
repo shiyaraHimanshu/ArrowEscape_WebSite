@@ -503,13 +503,9 @@ nav {
 .game-slider-container {
     width: 100%;
     max-width: 1200px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow: hidden; /* Prevent manual scroll and scroll-snap fighting */
     position: relative;
     padding: 4rem 0;
-    scroll-snap-type: x mandatory; /* Snap behavior */
 }
 
 .game-slider-container::-webkit-scrollbar {
@@ -520,6 +516,8 @@ nav {
     display: flex;
     gap: 40px;
     padding: 0 40px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
 }
 
 .game-card {
@@ -528,8 +526,6 @@ nav {
     flex-shrink: 0;
     cursor: pointer;
     transition: var(--transition-fast);
-    scroll-snap-align: center;
-    scroll-snap-stop: always; /* Prevent skipping cards */
 }
 
 @media (max-width: 768px) {
