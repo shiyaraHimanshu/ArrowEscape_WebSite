@@ -287,10 +287,9 @@
         document.querySelector("#loading-overlay").style.opacity = "0";
         setTimeout(() => {
           document.querySelector("#loading-overlay").style.display = "none";
+          // Automatically set full screen when loading complete
+          unityInstance.SetFullscreen(1);
         }, 500);
-
-
-
       }).catch((message) => {
         alert(message);
       });
