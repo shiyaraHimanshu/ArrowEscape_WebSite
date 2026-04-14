@@ -533,8 +533,8 @@ nav {
 
 @media (max-width: 768px) {
     .game-card {
-        min-width: 85%; /* Restored to original large size */
-        height: 480px;
+        min-width: 78%; /* Specific size to show left/right tiles slightly */
+        height: 460px;
     }
     .game-card.active .card-glass {
         border-color: var(--accent-red) !important;
@@ -542,8 +542,8 @@ nav {
         background: rgba(var(--accent-red-rgb), 0.1) !important;
     }
     .game-track {
-        gap: 20px; /* Restored gap */
-        padding: 0 40px;
+        gap: 15px; 
+        padding: 0 20px; /* Reduced padding to help tiles peek in */
     }
 }
 

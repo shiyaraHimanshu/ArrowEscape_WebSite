@@ -82,13 +82,20 @@ function updateSliderPosition(smooth = true) {
     
     const sliderWidth = slider.offsetWidth;
     const centerOffset = (sliderWidth - cardWidth) / 2;
-    const trackPadding = 40; // Matches CSS padding: 0 40px
+    const trackPadding = window.innerWidth <= 768 ? 20 : 40; 
     
     // Calculate offset to perfectly center the currentIndex card
     const offset = (currentIndex * (cardWidth + gap)) + trackPadding - centerOffset;
     
-    track.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
-    track.style.transform = `translateX(-${offset}px)`;
+    if (!smooth) {
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${offset}px)`;
+        // Force reflow to ensure the "none" transition is applied instantly
+        void track.offsetHeight;
+    } else {
+        track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        track.style.transform = `translateX(-${offset}px)`;
+    }
 
     // Update active highlight class (Mobile UX Enhancement)
     const cards = Array.from(track.children);
