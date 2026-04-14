@@ -652,6 +652,15 @@ nav {
     color: var(--accent-red);
     text-shadow: var(--red-glow);
     margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.stat-plus {
+    font-size: 3rem;
+    color: var(--accent-red);
+    text-shadow: var(--red-glow);
+    font-weight: 700;
+    margin-left: 0.2rem;
 }
 
 /* Game Overlay */
