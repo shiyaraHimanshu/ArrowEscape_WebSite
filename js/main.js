@@ -76,17 +76,6 @@ function getCardMetrics() {
     return { cardWidth, gap };
 }
 
-function updateActiveCard() {
-    const cards = Array.from(track.children);
-    cards.forEach((card, index) => {
-        if (index === currentIndex) {
-            card.classList.add('active-card');
-        } else {
-            card.classList.remove('active-card');
-        }
-    });
-}
-
 function updateSliderPosition(smooth = true) {
     const { cardWidth, gap } = getCardMetrics();
     if (cardWidth === 0) return;
@@ -100,8 +89,16 @@ function updateSliderPosition(smooth = true) {
     
     track.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
     track.style.transform = `translateX(-${offset}px)`;
-    
-    updateActiveCard();
+
+    // Update active highlight class (Mobile UX Enhancement)
+    const cards = Array.from(track.children);
+    cards.forEach((card, idx) => {
+        if (idx === currentIndex) {
+            card.classList.add('active');
+        } else {
+            card.classList.remove('active');
+        }
+    });
 }
 
 function initSlider() {
