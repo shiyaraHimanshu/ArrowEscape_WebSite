@@ -49,16 +49,15 @@ initParticles();
 animateParticles();
 
 // Game Modal Logic
+// Game Navigation Logic
 function openGame(gameFolder) {
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    iframe.src = `${gameFolder}/index.html`;
+    // Navigate directly to the game folder to update the URL
+    window.location.href = `./${gameFolder}/`;
 }
 
 function closeGame() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-    iframe.src = '';
+    // This is now handled by browser navigation (Back button)
+    window.location.href = '../';
 }
 
 // Slider Logic
