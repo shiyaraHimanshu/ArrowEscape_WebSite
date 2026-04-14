@@ -533,12 +533,12 @@ nav {
 
 @media (max-width: 768px) {
     .game-card {
-        min-width: 85%; /* Shows one full card and peeks at others */
-        height: 450px;
+        min-width: 65%; /* Smaller tiles for better device fit */
+        height: 380px;
     }
     .game-track {
-        gap: 20px;
-        padding: 0 20px;
+        gap: 15px; /* Tighter gap on mobile */
+        padding: 0 15px;
     }
 }
 
@@ -826,7 +826,13 @@ iframe {
     .hero-games {
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
     }
     
     .featured-game-card {
@@ -849,14 +855,12 @@ iframe {
         font-size: 2.5rem;
     }
     
+    .slider-wrapper {
+        padding: 0 3%; /* Reduced side spacing */
+    }
+
     .slider-arrow {
-        display: flex;
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
-        background: rgba(var(--accent-red-rgb), 0.2);
-        border-color: rgba(var(--accent-red-rgb), 0.4);
-        z-index: 100;
+        display: none; /* Hide arrows on mobile for cleaner look if swiping is supported */
     }
     
     .prev-arrow { left: 5px; }
@@ -950,13 +954,21 @@ iframe {
 
 @media (max-width: 768px) {
     .info-section {
-        padding: 4rem 5%;
+        padding: 3rem 15px;
+        width: 100%;
+        margin: 0;
     }
     .glass-content-card {
-        padding: 2rem;
+        padding: 1.5rem;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
     }
     .glass-content-card h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+    .glass-content-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 }
 
@@ -1020,6 +1032,34 @@ iframe {
 
 .back-home:hover {
     transform: translateX(-5px);
+}
+
+@media (max-width: 768px) {
+    .policy-container {
+        padding: 0 15px;
+        margin-top: 2rem;
+    }
+    .glass-panel {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+    .glass-panel h1 {
+        font-size: 2.2rem;
+    }
+    .glass-panel h2 {
+        font-size: 1.5rem;
+    }
+    .contact-box {
+        padding: 1.5rem !important;
+        margin-top: 2rem !important;
+    }
+    .last-updated {
+        margin-bottom: 2rem !important;
+    }
+}
+
+.glass-panel a {
+    color: var(--accent-red) !important;
 }
 
 
