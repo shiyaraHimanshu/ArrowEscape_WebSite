@@ -130,20 +130,37 @@ function initSlider() {
 function scrollSlider(direction) {
     if (isAnimating) return;
     
+    // JERK FIX: Pre-check boundaries. 
+    // If we are about to move out of the middle set, jump to the 
+    // equivalent middle-set card instantly FIRST, then animate.
+    // This makes the transition 100% seamless and removes the jump-glitch.
+    if (currentIndex >= originalCount * 2 || currentIndex < originalCount) {
+        if (currentIndex >= originalCount * 2) currentIndex -= originalCount;
+        else if (currentIndex < originalCount) currentIndex += originalCount;
+        updateSliderPosition(false); // Invisible instant jump
+    }
+    
+    // Now start the smooth animation to the next/prev card
     isAnimating = true;
     currentIndex += direction;
-    updateSliderPosition(true);
+    
+    // Use a small delay for the next animation to ensure the browser 
+    // has processed the instant jump from above.
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            updateSliderPosition(true);
+        });
+    });
 }
 
-// Seamless loop at transition end
+// Seamless loop logic for transition end (Cleanup only)
 track.addEventListener('transitionend', () => {
     isAnimating = false;
     
-    if (currentIndex >= originalCount * 2) {
-        currentIndex -= originalCount;
-        updateSliderPosition(false);
-    } else if (currentIndex < originalCount) {
-        currentIndex += originalCount;
+    // Secondary check to keep the range safe
+    if (currentIndex >= originalCount * 2 || currentIndex < originalCount) {
+        if (currentIndex >= originalCount * 2) currentIndex -= originalCount;
+        else if (currentIndex < originalCount) currentIndex += originalCount;
         updateSliderPosition(false);
     }
 });
@@ -218,7 +235,10 @@ window.addEventListener('load', () => {
             }
         } else {
             // Snap back if swipe wasn't strong enough
-            updateSliderPosition(true);
+            isAnimating = true; // Use animation lock for snap back too
+            requestAnimationFrame(() => {
+                updateSliderPosition(true);
+            });
         }
         startAutoSlide();
     });
