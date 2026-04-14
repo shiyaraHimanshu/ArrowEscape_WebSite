@@ -152,12 +152,58 @@ window.addEventListener('load', () => {
     const container = document.querySelector('.slider-wrapper');
     container.addEventListener('mouseenter', stopAutoSlide);
     container.addEventListener('mouseleave', startAutoSlide);
-    container.addEventListener('touchstart', stopAutoSlide);
-    container.addEventListener('touchend', startAutoSlide);
 
     // Re-center on resize
     window.addEventListener('resize', () => {
         updateSliderPosition(false);
+    });
+
+    // Touch Support
+    let touchStartX = 0;
+    let isDragging = false;
+    let startOffset = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        if (isAnimating) return;
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+        stopAutoSlide();
+        
+        // Disable transition during drag
+        track.style.transition = 'none';
+        
+        // Capture initial offset
+        const style = window.getComputedStyle(track);
+        const matrix = new WebKitCSSMatrix(style.transform);
+        startOffset = matrix.m41;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = currentX - touchStartX;
+        track.style.transform = `translateX(${startOffset + diff}px)`;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchEndX - touchStartX;
+        
+        // Threshold for swipe (50px)
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                scrollSlider(-1);
+            } else {
+                scrollSlider(1);
+            }
+        } else {
+            // Snap back if swipe wasn't strong enough
+            updateSliderPosition(true);
+        }
+        startAutoSlide();
     });
 });
 

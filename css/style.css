@@ -506,6 +506,9 @@ nav {
     overflow: hidden; /* Prevent manual scroll and scroll-snap fighting */
     position: relative;
     padding: 4rem 0;
+    /* Edge Fade Effect */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .game-slider-container::-webkit-scrollbar {
