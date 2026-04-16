@@ -58,6 +58,14 @@
     {
       "source": "/about",
       "destination": "/about.html"
+    },
+    {
+      "source": "/play-arrow-escape-online",
+      "destination": "/play-arrow-escape-online.html"
+    },
+    {
+      "source": "/arrow-escape",
+      "destination": "/arrow-escape/index.html"
     }
   ]
 }
