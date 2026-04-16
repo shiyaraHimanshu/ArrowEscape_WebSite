@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://undercitygames.com/sitemap.xml
+Sitemap: https://undercitygame.com/sitemap.xml
